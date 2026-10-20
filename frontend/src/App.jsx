@@ -8,13 +8,11 @@ function App() {
   const [infoData, setInfoData] = useState(null);
 
   useEffect(() => {
-    // Consumir Endpoint 4: /api/health
     fetch('http://localhost:4000/api/health')
       .then((res) => res.json())
       .then((data) => setHealthMessage(data.message))
       .catch((err) => console.error('Error al cargar health:', err));
 
-    // Consumir Endpoint 5: /api/info
     fetch('http://localhost:4000/api/info')
       .then((res) => res.json())
       .then((data) => setInfoData(data))
@@ -23,27 +21,25 @@ function App() {
 
   return (
     <Container className="py-5">
-      {/* Punto 3: Título Taller IV */}
+      
       <header className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-primary">Taller IV</h1>
+        <h1 className="display-4 fw-bold" style={{color: '#C355E6'}}>Taller IV</h1>
       </header>
 
-      {/* Punto 4: Consumo de /api/health usando h4, p, div, section y CSS */}
       <section className="health-section mb-5 p-4 rounded shadow-sm border">
         <div className="health-container">
-          <h4 className="health-title text-success">Estado del Servidor (Health Check)</h4>
+          <h4 className="health-title" style={{color: '#8413A8'}}>Estado del Servidor</h4>
           <p className="health-text text-dark">
             {healthMessage ? healthMessage : 'Cargando estado del API...'}
           </p>
         </div>
       </section>
 
-      {/* Punto 5: Consumo de /api/info usando componentes de Reactstrap */}
       <Row className="justify-content-center">
         <Col md="10">
           <Card className="shadow-sm border-0">
             <CardBody className="p-4">
-              <CardTitle tag="h3" className="mb-4 text-secondary">
+              <CardTitle tag="h3" className="mb-4" style={{color: '#8413A8'}}>
                 Información del Equipo y Proyectos
               </CardTitle>
 
